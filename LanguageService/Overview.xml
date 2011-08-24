@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="../../../../Common/Overview.xsl" type="text/xsl"?>
+<VSSDKSample>
+  <ImagePath>../../../../Common</ImagePath>
+  <Status>
+    <Accessibility>false</Accessibility>
+    <ArchitectureDiagram>false</ArchitectureDiagram>
+    <Comments>true</Comments>
+    <Documentation>true</Documentation>
+    <ErrorHandling>true</ErrorHandling>
+    <FollowSDKCodingStandards>false</FollowSDKCodingStandards>
+    <Localizable>true</Localizable>
+    <Overview>true</Overview>
+    <ScenarioTests>true</ScenarioTests>
+    <Supported>true</Supported>
+    <UnitTests>false</UnitTests>
+    <Style>Example</Style>
+  </Status>
+  <Overview>
+    <ShortName>C# Example.ManagedMyC</ShortName>
+    <LongName>ManagedMyC Sample (C#)</LongName>
+    <Phrase>
+      Demonstrates how to implement a C-like language (called MyC) using
+      a language specification with the MPLex and MPPG tools.
+    </Phrase>
+  </Overview>
+  <Introduction>
+    <Summary>
+      This sample demonstrates how you can use the MPLex and MPPG tools to create a
+      language service using managed (C#) code.
+    </Summary>
+    <Goal>Create a language service that provides colorization, brace matching, and error handling</Goal>
+    <Goal>Use the MPLex and MPPG tools and build tasks to generate a lexer and parser</Goal>
+    <Goal>Only C# language is used for implementation (no C++/COM)</Goal>
+    <Image width="400" height="400">Example.ManagedMyC.jpg</Image>
+  </Introduction>
+  <SampleInfo>
+    <State>
+    </State>
+    <Type>Example</Type>
+    <Complexity>1</Complexity>
+    <Screenshot>Example.ManagedMyC.jpg</Screenshot>
+    <Area>IDE</Area>
+    <Language>C#</Language>
+    <Folder>VisualStudioIntegration\Samples\IDE\CSharp\Example.ManagedMyC\</Folder>
+    <SampleSolution>ManagedMyC.sln</SampleSolution>
+    <FolderUnitTest>
+    </FolderUnitTest>
+    <UnitTestStartup>
+    </UnitTestStartup>
+    <Doc />
+    <Keywords>
+      <Keyword>MPLex</Keyword>
+      <Keyword>MPPG</Keyword>
+      <Keyword>Language</Keyword>
+      <Keyword>Service</Keyword>
+      <Keyword>MyC</Keyword>
+    </Keywords>
+  </SampleInfo>
+  <GettingStarted>
+    <Paragraph>
+      This sample provides a language service which colorizes a C-like language called MyC.
+      When the sample is built, the lexer.lex and parser.y files are set to the MPLex and MPPG tools
+      respectively and C# files are generated and built. These generated C# files represent a lexer and
+      parser which can be used to create an abstract syntax tree (AST) for the MyC language.
+    </Paragraph>
+    <Paragraph>
+      The lex and y file(s) use custom MSBuild tasks written to target the MPLex and MPPG tools. The tool
+      executables are located in the VisualStudioIntegration\Tools\Bin folder of the SDK.
+    </Paragraph>
+    <Paragraph>
+      For more information about the Managed Babel system, and the MPLex/MPPG tools, please see the extra documentation in the VisualStudioIntegration\ExtraDocumentation folder of the SDK.
+    </Paragraph>
+  </GettingStarted>
+  <BuildingTheSample>
+    <Step>
+      Open the ManagedMyC.sln solution.
+    </Step>
+    <Step>
+      Press F5 to build the sample, register it in the experimental hive, and launch Visual Studio from the experimental hive.
+    </Step>
+  </BuildingTheSample>
+  <RunningTheSample>
+    <SampleTask>
+      <Description>
+        To use managed language services provided by MPLex and MPPG...
+      </Description>
+      <Step>
+        In the instance of Visual Studio running in the experimental hive, create a new text file by pressing <bold>Ctrl-N</bold>. 
+        Select <bold>Text File</bold> from <bold>Visual Studio installed templates</bold>. Save it as "MyC.myc", without the extension ".txt".
+      </Step>
+      <Step>
+        Edit the source file using the C language. Now your source file can use Visual Studio language services features such as
+        colorization, brace matching, and error handling.
+      </Step>
+    </SampleTask>
+    <SampleTask>
+      <Description>
+        To open a MyC file...
+      </Description>
+      <Step>
+        On the <bold>File</bold> menu, select <bold>Open File</bold>.
+      </Step>
+      <Step>
+        Find the tflow.myc file and click <bold>OK</bold>. You now have an open code window in which you can see a MyC file. All the 
+        identifiers are colored as you described on the Language Tokens page of the Language Service Wizard.
+      </Step>
+    </SampleTask>
+  </RunningTheSample>
+  <AdditionalResources>
+    <Resource>
+      <Title>Visual Studio SDK Website</Title>
+      <URL>http://msdn.microsoft.com/vstudio/extend</URL>
+    </Resource>
+  </AdditionalResources>
+  <UnitTests>
+  </UnitTests>
+  <FunctionalTests>
+    <Test>
+      Verify that sample builds in all configurations.
+    </Test>
+    <Test>
+      Verify that the sample was registered.
+    </Test>
+    <Test>
+      Verify that syntax colorization works with .myc files.
+    </Test>
+    <Test>
+      Verify that brace matching works with .myc files.
+    </Test>
+    <Test>
+      Verify that error handling / reporting works with .myc files.
+    </Test>
+  </FunctionalTests>
+  <ProjectFiles>
+    <File>
+      <Name>Generated\ErrorHandler.cs</Name>
+      <Description>
+        Contains an Error class which is used to store information about an error in the source code being parsed.
+        Also contains a Span class which is used by the Error class to refer to a specific span of text in the source file.
+        Also contains an ErrorHandler class which implements the IErrorHandler interface. This interface and implementation
+        are used for managing a list of errors.
+      </Description>
+    </File>
+    <File>
+      <Name>Generated\LexDefs.cs</Name>
+      <Description>
+        Contains definitions for the IColorScan and IErrorHandler interfaces. IColorScan will be implemented by the 
+        generated parser after running the MPPG tool on the .y file. IErrorHandler is implemented by the ErrorHandler definition in
+        the Generated\ErrorHandler.cs file.
+      </Description>
+    </File>
+    <File>
+      <Name>Generated\lexer.lex</Name>
+      <Description>
+        Using a syntax similar to the UNIX lex tool, this file contains a specification for
+        tokenizing a MyC file.
+      </Description>
+    </File>
+    <File>
+      <Name>Generated\parser.y</Name>
+      <Description>
+        Using a syntax similar to the UNIX yacc tool, this file contains a specification for
+        parsing a MyC file into an abstract syntax tree given a list of tokens from a lexer.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\AuthoringScope.cs</Name>
+      <Description>
+        Contains an AuthoringScope implementation which derives from the MPF AuthoringScope class.
+        This class is designed to be used for multiple language implementations and is not specific to MyC.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Configuration.cs</Name>
+      <Description>
+        Contains a partial class implementation of the Configuration class which is not specific to any language.
+        The remaining portions of the class definition are defined in UserSupplied\Configuration.cs and *are* language-specific.
+
+        Also, this file contains a definition of ColorableItem which implements the IVsColorableItem interface which is used
+        to provide Visual Studio with colorization information.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Declaration.cs</Name>
+      <Description>
+        Contains a definition of a struct called Declaration which defines information about function declarations
+        in a source file.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Declarations.cs</Name>
+      <Description>
+        Contains a class which derives from the MPF Declarations class and is used to store a list of Declaration objects.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\IASTResolver.cs</Name>
+      <Description>
+        Defines the IASTResolver interface. This interface is implmented by the language-specific, user-supplied Resolver class
+        found in UserSupplied\Resolver.cs
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\LanguageService.cs</Name>
+      <Description>
+        Defines a LanguageService class which derives from the MPF LanguageService class. This class is language-independent and
+        is meant to be shared between multiple language service implementations.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\LineScanner.cs</Name>
+      <Description>
+        LineScanner wraps the GPLEX scanner to provide the IScanner interface
+        required by the Managed Package Framework. This includes mapping tokens
+        to color definitions.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Method.cs</Name>
+      <Description>
+        Defines two structs: Method and Parameter. These are used for sharing information about a method
+        declaration and it's contained parameters in a source file to Visual Studio.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Methods.cs</Name>
+      <Description>
+        Contains a class which derives from the MPF Methods class and is used to store a list of Method objects.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Package.cs</Name>
+      <Description>
+        Contains a class which derives from the MPF Package class and is used to get the language service loaded
+        and running in Visual Studio. This class is language-independent and is meant to be shared between 
+        multiple language service implementations.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Parser.cs</Name>
+      <Description>
+        Contains a partial Parser class which is consumed by the LanguageService class to get information about
+        the current source file being parsed. The second part of the Parser implementation comes from the output of
+        running the MPPG tool on the Generated\parser.y file.
+      </Description>
+    </File>
+    <File>
+      <Name>Invariant\Source.cs</Name>
+      <Description>
+        Contains a Source class which derives from the MPF Source class. This class is used for managing the current
+        source file and keeping Visual Studio in sync with the current source.
+      </Description>
+    </File>
+    <File>
+      <Name>UserSupplied\Configuration.cs</Name>
+      <Description>
+        Contains the second part of a Configuration class which is meant to contain language specific information
+        about the language service being built. In this sample, it contains details specific to MyC.
+     </Description>
+    </File>
+    <File>
+      <Name>UserSupplied\Resolver.cs</Name>
+      <Description>
+        Contains the user-supplied implementation of IASTResolver. This class is used by the invariant AuthoringScope
+        class to get information about the various declarations in a source file in response to a parse request.
+        This class is meant to be specific to the language service being built. In this sample, it 
+        contains an implementation specific to MyC.
+      </Description>
+    </File>
+  </ProjectFiles>
+  <History>
+    <Change>
+      <Date>2006-07-26</Date>
+      <Description>Created this sample for the Visual Studio 2005 SDK.</Description>
+    </Change>
+  </History>
+</VSSDKSample>
