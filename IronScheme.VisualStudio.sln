@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronScheme.VisualStudio", "LanguageService\IronScheme.VisualStudio.csproj", "{697144D5-DC3B-484B-9747-E79CB6D7AC97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronScheme.VisualStudio.Project", "Project\IronScheme.VisualStudio.Project.csproj", "{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSIX", "VSIX\VSIX.csproj", "{AE04253A-C166-445E-93FE-05CFA101B481}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,9 @@ Global
 		{697144D5-DC3B-484B-9747-E79CB6D7AC97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{697144D5-DC3B-484B-9747-E79CB6D7AC97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{697144D5-DC3B-484B-9747-E79CB6D7AC97}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4ADEBDB-CD20-4532-B4E3-FE7424F5369C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE04253A-C166-445E-93FE-05CFA101B481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE04253A-C166-445E-93FE-05CFA101B481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE04253A-C166-445E-93FE-05CFA101B481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

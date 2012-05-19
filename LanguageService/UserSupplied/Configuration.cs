@@ -41,7 +41,7 @@ namespace Babel
 
             TokenColor error = CreateColor("Error", COLORINDEX.CI_RED, COLORINDEX.CI_USERTEXT_BK, false, false);
 
-            TokenColor proc = CreateColor("Procedure", COLORINDEX.CI_AQUAMARINE, COLORINDEX.CI_USERTEXT_BK);
+            TokenColor proc = CreateColor("Symbol Definition", COLORINDEX.CI_AQUAMARINE, COLORINDEX.CI_USERTEXT_BK);
 
             TokenColor subform = CreateColor("Auxilliary syntax", COLORINDEX.CI_MAGENTA, COLORINDEX.CI_USERTEXT_BK);
             TokenColor record = CreateColor("Record", COLORINDEX.CI_PURPLE, COLORINDEX.CI_USERTEXT_BK);

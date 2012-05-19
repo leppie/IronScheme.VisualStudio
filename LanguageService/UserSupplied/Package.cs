@@ -30,7 +30,7 @@ namespace Babel
      */
 
     [PackageRegistration(UseManagedResourcesOnly=true)]
-    [DefaultRegistryRoot(@"Software\Microsoft\VisualStudio\9.0")]
+    [DefaultRegistryRoot(@"Software\Microsoft\VisualStudio\11.0Exp")]
     [ProvideService(typeof(Babel.LanguageService))]
     [ProvideLanguageExtension(typeof(Babel.LanguageService), ".ss")]
     [ProvideLanguageExtension(typeof(Babel.LanguageService), ".sls")]
@@ -47,6 +47,7 @@ namespace Babel
         ShowCompletion = true,
         ShowMatchingBrace = false,
         AutoOutlining = true,
+        //RequestStockColors = true,
         EnableAsyncCompletion = true,
         CodeSenseDelay = 0)]
     [ProvideLoadKey("Standard", "1.0.0.0", "IronScheme.VisualStudio", "IronScheme", 104)]
