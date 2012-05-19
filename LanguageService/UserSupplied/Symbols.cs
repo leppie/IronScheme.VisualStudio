@@ -248,6 +248,7 @@ namespace Babel
     }
   }
 
+#if UNUSED
   static class SymbolCache
   {
     static Dictionary<string, Dictionary<string, int>> cache = new Dictionary<string, Dictionary<string, int>>();
@@ -326,6 +327,8 @@ namespace Babel
       return (int)Tokens.SYMBOL;
     }
   }
+
+#endif
 
   static class Symbols
   {

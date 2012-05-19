@@ -118,8 +118,8 @@ namespace Babel
       // source.IsDirty also behaves strangely
       // might be possible to use source.ChangeCount to sync instead
 
-      //if (req.DirtySpan.iStartIndex != req.DirtySpan.iEndIndex
-      //    || req.DirtySpan.iStartLine != req.DirtySpan.iEndLine)
+      if (req.DirtySpan.iStartIndex != req.DirtySpan.iEndIndex
+          || req.DirtySpan.iStartLine != req.DirtySpan.iEndLine)
       {
         Babel.Parser.ErrorHandler handler = new Babel.Parser.ErrorHandler();
         Babel.Lexer.Scanner scanner = new Babel.Lexer.Scanner(); // string interface

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+
+<!--<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="IronScheme.VisualStudio" Version="1.0" Language="en-US" Publisher="leppie" />
+    <Identity Id="IronScheme.VisualStudio..c729d6b2-f512-49ed-893d-a8f61f25db98" Version="1.0" Language="en-US" Publisher="leppie" />
     <DisplayName>IronScheme</DisplayName>
     <Description>IronScheme.VisualStudio</Description>
   </Metadata>
@@ -14,4 +15,32 @@
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="IronScheme.VisualStudio" Path="|IronScheme.VisualStudio;PkgdefProjectOutputGroup|" />
   </Assets>
-</PackageManifest>
+</PackageManifest>-->
+
+<Vsix Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="IronScheme.VisualStudio..c729d6b2-f512-49ed-893d-a8f61f25db98">
+    <Name>IronScheme</Name>
+    <Author>leppie</Author>
+    <Version>1.0</Version>
+    <Description>IronScheme.VisualStudio</Description>
+    <Locale>1033</Locale>
+    <MoreInfoUrl>http://ironscheme.codeplex.com</MoreInfoUrl>
+    <Icon>ironscheme.ico</Icon>
+    <PreviewImage>logo-192.png</PreviewImage>    
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Express_All</Edition>
+        <Edition>Pro</Edition>
+      </VisualStudio>
+      <VisualStudio Version="11.0">
+        <Edition>Express_All</Edition>
+        <Edition>Pro</Edition>
+      </VisualStudio>      
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
+  </Identifier>
+  <References />
+  <Content>
+    <VsPackage>|IronScheme.VisualStudio;PkgdefProjectOutputGroup|</VsPackage>
+  </Content>
+</Vsix>

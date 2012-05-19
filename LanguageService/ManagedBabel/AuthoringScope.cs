@@ -37,25 +37,6 @@ namespace Babel
     List<Identifier> ids;
 
 
-
-
-    int GetGlyph(SymbolBinding x)
-    {
-      switch (x.Type)
-      {
-        case BindingType.Procedure:
-          return 72;
-        case BindingType.Syntax:
-          return 36;
-        case BindingType.Record:
-          return 0;
-      }
-
-      return 0;
-    }
-
-
-
 		// ParseReason.QuickInfo
 		public override string GetDataTipText(int line, int col, out TextSpan span)
 		{
@@ -65,35 +46,6 @@ namespace Babel
 
     string FindQuickInfo(int line, int col, out TextSpan span)
     {
-      var simp = imports;
-
-      var id = ids.SingleOrDefault(x => x.Location.iStartLine <= line &&
-                                        x.Location.iEndLine >= line &&
-                                        x.Location.iStartIndex <= col &&
-                                        x.Location.iEndIndex >= col);
-
-      if (id != null && !string.IsNullOrEmpty(simp))
-      {
-        span = id.Location;
-
-        var sb = new SymbolBindingService();
-
-        var bi = sb.GetBindings(simp).SingleOrDefault(x => x.Name == id.Name);
-        if (bi != null)
-        {
-          if (bi.Type == BindingType.Procedure)
-          {
-            var pi = sb.GetProcedureInfo(id.Name, simp);
-
-            return bi.Type + Environment.NewLine + string.Join(Environment.NewLine, pi.Forms);
-          }
-          else
-          {
-            return bi.Type + Environment.NewLine + bi.Name;
-          }
-        }
-      }
-
       span = new TextSpan();
       return "unknown";
     }
@@ -126,23 +78,7 @@ namespace Babel
 
     IList<Babel.Declaration> FindCompletions(string text, int line, int col)
     {
-      var simp = imports;
-
-      if (string.IsNullOrEmpty(simp))
-      {
-        return new List<Babel.Declaration>();
-      }
-
-      var sb = new SymbolBindingService();
-      var bindings = sb.GetBindings(simp);
-
-      if (text.StartsWith("("))
-      {
-        return bindings.Select(x => new Declaration(x.Name, x.Name, GetGlyph(x), x.Name)).OrderBy(x => x.DisplayText).ToList();
-      }
-
-      return bindings.Where(x => x.Name.StartsWith(text, StringComparison.OrdinalIgnoreCase)).
-        Select(x => new Declaration(x.Name, x.Name, GetGlyph(x), x.Name)).OrderBy(x => x.DisplayText).ToList();
+      return new List<Babel.Declaration>();
     }
 
     IList<Babel.Declaration> FindMembers(int line, int col)

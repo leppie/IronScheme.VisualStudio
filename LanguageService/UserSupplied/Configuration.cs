@@ -41,7 +41,7 @@ namespace Babel
 
             TokenColor error = CreateColor("Error", COLORINDEX.CI_RED, COLORINDEX.CI_USERTEXT_BK, false, false);
 
-            TokenColor proc = CreateColor("Symbol Definition", COLORINDEX.CI_AQUAMARINE, COLORINDEX.CI_USERTEXT_BK);
+            TokenColor proc = CreateColor("User Types", COLORINDEX.CI_AQUAMARINE, COLORINDEX.CI_USERTEXT_BK);
 
             TokenColor subform = CreateColor("Auxilliary syntax", COLORINDEX.CI_MAGENTA, COLORINDEX.CI_USERTEXT_BK);
             TokenColor record = CreateColor("Record", COLORINDEX.CI_PURPLE, COLORINDEX.CI_USERTEXT_BK);
@@ -57,7 +57,7 @@ namespace Babel
             ColorToken((int)Tokens.LITERAL, TokenType.Literal, TokenColor.Number, TokenTriggers.Parameter);
 
             ColorToken((int)Tokens.FORM, TokenType.Keyword, TokenColor.Keyword, TokenTriggers.None);
-            ColorToken((int)Tokens.SUBFORM, TokenType.Keyword, subform, TokenTriggers.None);
+            ColorToken((int)Tokens.SUBFORM, TokenType.Keyword, TokenColor.Keyword, TokenTriggers.None);
             ColorToken((int)Tokens.RECORD, TokenType.Keyword, record, TokenTriggers.None);
             
             ColorToken((int)Tokens.DEFINE, TokenType.Keyword, TokenColor.Keyword, TokenTriggers.None);
